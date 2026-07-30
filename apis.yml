@@ -1,8 +1,16 @@
 aid: lordandtaylor
-name: Lordandtaylor
-description: 'Lordandtaylor is a company surfaced as a portfolio company of norwest-venture-partners and
-  added to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead
-  awaiting the enrichment pipeline.'
+name: Lord & Taylor
+description: >-
+  Lord & Taylor is one of the oldest American department-store apparel and home-goods
+  retail brands, now operating as a direct-to-consumer online store at lordandtaylor.com.
+  The storefront runs on the Shopify commerce platform, so its public, agent-accessible
+  API surface is the Shopify commerce stack: OAuth 2.0 / OpenID Connect customer
+  authentication (issued via Shopify Customer Accounts) plus two hosted Model Context
+  Protocol (MCP) servers — an unauthenticated Storefront MCP exposing product search,
+  cart, product-detail and store-policy tools, and an OAuth-protected Customer Account
+  MCP exposing order-status, return-request and store-credit tools. Surfaced into the
+  API Evangelist network as a portfolio-lead stub and enriched from live discovery
+  documents and MCP tool listings.
 url: https://raw.githubusercontent.com/api-evangelist/lordandtaylor/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,12 +18,31 @@ x-backed-by:
 - norwest-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-- Unknown
+- Retail
+- E-Commerce
+- Apparel
+- Shopping
+- Department Store
+- Agentic Commerce
+- MCP
+image: https://www.lordandtaylor.com/cdn/shop/files/logo.png
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +52,29 @@ maintainers:
 common:
 - type: Website
   url: https://lordandtaylor.com
+- type: MCPServer
+  name: Lord & Taylor Shopify MCP servers (Storefront + Customer Account)
+  url: mcp/lordandtaylor-mcp.yml
+- type: WellKnown
+  url: well-known/lordandtaylor-well-known.yml
+- type: Authentication
+  url: authentication/lordandtaylor-authentication.yml
+- type: OAuthScopes
+  url: scopes/lordandtaylor-scopes.yml
+- type: OpenIDConnect
+  url: https://www.lordandtaylor.com/.well-known/openid-configuration
+- type: Conformance
+  url: conformance/lordandtaylor-conformance.yml
+- type: DomainSecurity
+  url: security/lordandtaylor-domain-security.yml
+- type: Login
+  url: https://account.lordandtaylor.com/
+- type: PrivacyPolicy
+  url: https://lordandtaylor.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://lordandtaylor.com/policies/terms-of-service
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
