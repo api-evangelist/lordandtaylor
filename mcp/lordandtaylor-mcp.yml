@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: live tools/list against the hosted MCP endpoints
+notes: >-
+  lordandtaylor.com is a Shopify-powered store and exposes two hosted, public
+  Model Context Protocol (MCP) servers provided by the Shopify commerce platform
+  (Universal Commerce Protocol / UCP). The Storefront MCP is unauthenticated and
+  serves agentic shopping tools; the Customer Account MCP is OAuth-protected
+  (scope customer-account-mcp-api:full) and serves order/return/store-credit
+  tools. Tool lists below were captured live via JSON-RPC tools/list.
+servers:
+- name: lordandtaylor-storefront-mcp
+  transport: http
+  url: https://www.lordandtaylor.com/api/mcp
+  auth: none
+  platform: Shopify Storefront MCP (UCP)
+  tools:
+  - name: search_catalog
+    description: Search for products from the online store (natural-language queries and/or filter criteria; paginated).
+  - name: get_cart
+    description: Get the cart including items, shipping options, discount info, and checkout URL for a given cart.
+  - name: update_cart
+    description: Update a cart — add/remove/update line items, buyer information, discounts, etc.
+  - name: search_shop_policies_and_faqs
+    description: Get facts about the store's policies, products, or services.
+  - name: get_product_details
+    description: Look up a product by ID; pass the options parameter to select a specific variant.
+- name: lordandtaylor-customer-account-mcp
+  transport: http
+  url: https://account.lordandtaylor.com/customer/api/mcp
+  auth: oauth2
+  scope: customer-account-mcp-api:full
+  platform: Shopify Customer Account MCP
+  tools:
+  - name: get_most_recent_order_status
+    description: Get the status of the customer's most recent order.
+  - name: get_order_status
+    description: Get the status of a specific order.
+  - name: get_store_credit_balances
+    description: Get the customer's store-credit balances.
+  - name: request_return
+    description: Request a return for an order.
