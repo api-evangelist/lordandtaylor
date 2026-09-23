@@ -2,19 +2,6 @@ generated: '2026-07-20'
 method: searched
 source: live probe of /.well-known/ on lordandtaylor.com hosts
 host: https://www.lordandtaylor.com
-documents:
-- path: /.well-known/openid-configuration          # OIDC discovery (Shopify Customer Accounts)
-  status: 200
-  file: lordandtaylor-openid-configuration.json
-- path: /.well-known/oauth-authorization-server     # RFC 8414
-  status: 200
-  file: lordandtaylor-oauth-authorization-server.json
-- path: /.well-known/security.txt                   # RFC 9116
-  status: 404
-- path: /.well-known/api-catalog                    # RFC 9727
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
 additional_hosts:
 - host: https://account.lordandtaylor.com
   documents:
@@ -22,11 +9,29 @@ additional_hosts:
     status: 200
   - path: /.well-known/oauth-authorization-server
     status: 200
-  - path: /authentication/.well-known/jwks.json     # signing keys (issuer)
+  - path: /authentication/.well-known/jwks.json
     status: 200
     file: lordandtaylor-jwks.json
-notes: >-
-  lordandtaylor.com runs on Shopify. The OpenID Connect / OAuth 2.0 discovery
-  documents are served by Shopify Customer Accounts; issuer is
-  https://shopify.com/authentication/90637893921 and the authorization/token
+notes: lordandtaylor.com runs on Shopify. The OpenID Connect / OAuth 2.0 discovery documents are served
+  by Shopify Customer Accounts; issuer is https://shopify.com/authentication/90637893921 and the authorization/token
   endpoints live under https://account.lordandtaylor.com/authentication/oauth/.
+hosts:
+- host: https://www.lordandtaylor.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: lordandtaylor-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: lordandtaylor-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
