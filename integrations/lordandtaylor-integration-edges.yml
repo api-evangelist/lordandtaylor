@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/lordandtaylor/integrations
+- https://zapier.com/apps/lord-taylor/integrations
+- https://n8n.io/integrations/lordandtaylor/
+- https://composio.dev/toolkits/lordandtaylor
+- https://monid.ai/tools/lordandtaylor
+checked:
+- https://composio.dev/toolkits/lordandtaylor
+- https://monid.ai/tools/lordandtaylor
+- https://n8n.io/integrations/lordandtaylor/
+- https://zapier.com/apps/lord-taylor/integrations
+- https://zapier.com/apps/lordandtaylor/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
